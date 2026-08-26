@@ -40,6 +40,8 @@
               :false-label="1"
               @change="(val) => onViewChange(row._node, val)"
             ></el-checkbox>
+
+            查看
           </template>
         </el-table-column>
         <el-table-column label="操作权限" min-width="300">
@@ -194,22 +196,35 @@ export default {
       syncAncestors(this.menu);
     },
 
-    /** 查看 checkbox 变化 → 联动操作权限（全选状态自动派生） */
+    /**
+     * 查看 checkbox 变化 → 只改自身查看状态，不联动任何按钮；
+     * 规则3：只要存在已勾选的操作权限按钮，查看不可取消（强制保持勾选）。
+     */
     onViewChange(node, val) {
       if (!node) return;
-      (node.childs || []).forEach((c) => {
-        if (c.meanType !== 'menu') c.isOn = val;
-      });
+      const buttons = (node.childs || []).filter((c) => c.meanType !== 'menu');
+      if (val !== 2 && buttons.some((b) => b.isOn == 2)) {
+        // v-model 已把 isOn 置为 1，这里强制恢复，实现"查看无法取消"
+        node.isOn = 2;
+        syncAncestors(this.menu);
+        return;
+      }
+      node.isOn = val;
       // 上行同步：三级→二级→一级 联动
       syncAncestors(this.menu);
     },
 
-    /** 操作权限按钮变化 → 全部勾选时联动勾选查看（全选状态自动派生） */
+    /**
+     * 操作权限按钮变化 → 规则2：任一按钮勾选即自动勾选上级查看；
+     * 全部勾选时"查看选中"自然成立（任一已勾选）。
+     * 操作权限全部取消时查看保持原状（不自动取消），
+     * 此时无按钮勾选，用户可手动取消查看（一次即生效）。
+     */
     onButtonChange(node) {
       if (!node) return;
       const buttons = (node.childs || []).filter((c) => c.meanType !== 'menu');
       if (!buttons.length) return;
-      if (buttons.every((b) => b.isOn == 2)) {
+      if (buttons.some((b) => b.isOn == 2)) {
         node.isOn = 2;
       }
       // 上行同步：三级→二级→一级 联动
