@@ -28,7 +28,7 @@
 
 <script>
 import menuData from './data/menu';
-import { ensureUniqueIds } from './utils/menu';
+import { ensureUniqueIds, syncAncestors } from './utils/menu';
 import SidebarMenu from './components/SidebarMenu.vue';
 import PermissionDetail from './components/PermissionDetail.vue';
 
@@ -41,6 +41,10 @@ export default {
       menu: ensureUniqueIds(menuData),
       activeId: 'all',
     };
+  },
+  created() {
+    // 初始化时同步一次祖先链路（三级→二级→一级），保证初始数据一致
+    syncAncestors(this.menu);
   },
   methods: {
     handleSelect(index) {

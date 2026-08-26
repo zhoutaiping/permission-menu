@@ -85,6 +85,64 @@ function containsId(node, id) {
   return false;
 }
 
+/**
+ * 节点是否为"已完全勾选"：
+ * - 无按钮时只看自身 isOn == 2
+ * - 有按钮时需自身 isOn == 2 且所有按钮 isOn == 2
+ * 是"二级全选→一级自动 2"规则的判定基础。
+ */
+export function isFullyChecked(node) {
+  if (!node) return false;
+  const buttons = (node.childs || []).filter((c) => c.meanType !== 'menu');
+  if (!buttons.length) return node.isOn == 2;
+  return node.isOn == 2 && buttons.every((b) => b.isOn == 2);
+}
+
+/**
+ * 二级菜单 isOn 向上聚合：
+ * 只要某一二级菜单下存在任一三级菜单（meanType='menu'）已选中（isOn == 2），
+ * 该二级菜单 isOn 即设为 2；全部三级均未选中时才设为 1。
+ * 无三级子菜单的二级节点不处理（保持用户直接操作/按钮联动结果）。
+ * 原地修改 menu 数据，无返回值。
+ */
+export function syncLevel2(menu) {
+  (menu || []).forEach((l1) => {
+    (l1.childs || []).forEach((l2) => {
+      if (l2.meanType !== 'menu') return;
+      const subMenus = (l2.childs || []).filter((c) => c.meanType == 'menu');
+      if (!subMenus.length) return;
+      const anyChecked = subMenus.some((sm) => sm.isOn == 2);
+      l2.isOn = anyChecked ? 2 : 1;
+    });
+  });
+}
+
+/**
+ * 一级菜单 isOn 向上聚合：
+ * 只要某一级菜单下存在任一二级菜单（meanType='menu'）已选中（isOn == 2），
+ * 该一级菜单 isOn 即设为 2；全部二级均未选中时才设为 1。
+ * 原地修改 menu 数据，无返回值。
+ */
+export function syncTopLevel(menu) {
+  (menu || []).forEach((l1) => {
+    const subMenus = (l1.childs || []).filter((c) => c.meanType == 'menu');
+    if (!subMenus.length) return;
+    const anyChecked = subMenus.some((sm) => sm.isOn == 2);
+    l1.isOn = anyChecked ? 2 : 1;
+  });
+}
+
+/**
+ * 祖先链路向上聚合（先二级后一级，保证顺序依赖正确）：
+ * - L2 根据其下三级菜单选中状态聚合
+ * - L1 再根据聚合后的二级状态聚合
+ * 交互修改点（全选/查看/操作权限/表头全选）统一调用此入口即可。
+ */
+export function syncAncestors(menu) {
+  syncLevel2(menu);
+  syncTopLevel(menu);
+}
+
 /** 判断节点是否为按钮权限（meanType 为 button 或缺失 meanType） */
 export function isButton(item) {
   return item.meanType == 'button' || !item.meanType;

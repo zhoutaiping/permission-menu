@@ -66,7 +66,7 @@
 </template>
 
 <script>
-import { findById, findTopLevel, findPosition } from '../utils/menu';
+import { findById, findTopLevel, findPosition, isFullyChecked, syncAncestors } from '../utils/menu';
 
 export default {
   name: 'PermissionDetail',
@@ -174,18 +174,12 @@ export default {
     },
 
     /**
-     * 派生判断：节点查看=2 且所有按钮=2 时视为"全选"
-     * 单一数据源：完全从 isOn 计算，不再依赖 selectAllMap 临时字段
-     * 无操作权限时：全选状态 = 查看是否勾选（与 isOn 联动）
+     * 派生判断：节点查看=2 且所有按钮=2 时视为"全选"。
+     * 单一数据源：完全从 isOn 计算，不再依赖 selectAllMap 临时字段。
+     * 委托 utils.isFullyChecked 处理，避免规则在多处分散。
      */
     isAllChecked(node) {
-      if (!node) return false;
-      const buttons = (node.childs || []).filter((c) => c.meanType !== 'menu');
-      // 无操作权限：全选 = 查看 isOn
-      if (!buttons.length) {
-        return node.isOn == 2;
-      }
-      return node.isOn == 2 && buttons.every((b) => b.isOn == 2);
+      return isFullyChecked(node);
     },
 
     /** 全选开关变化 → 设置查看 + 所有按钮的 isOn */
@@ -196,6 +190,8 @@ export default {
       (node.childs || []).forEach((c) => {
         if (c.meanType !== 'menu') c.isOn = v;
       });
+      // 上行同步：三级→二级→一级 联动
+      syncAncestors(this.menu);
     },
 
     /** 查看 checkbox 变化 → 联动操作权限（全选状态自动派生） */
@@ -204,6 +200,8 @@ export default {
       (node.childs || []).forEach((c) => {
         if (c.meanType !== 'menu') c.isOn = val;
       });
+      // 上行同步：三级→二级→一级 联动
+      syncAncestors(this.menu);
     },
 
     /** 操作权限按钮变化 → 全部勾选时联动勾选查看（全选状态自动派生） */
@@ -214,6 +212,8 @@ export default {
       if (buttons.every((b) => b.isOn == 2)) {
         node.isOn = 2;
       }
+      // 上行同步：三级→二级→一级 联动
+      syncAncestors(this.menu);
     },
 
     /** 表头全选 checkbox 变化 → 对所有行同步 */
@@ -222,6 +222,8 @@ export default {
       this.rows.forEach((r) => {
         this.onSelectAllChange(r._node, val);
       });
+      // onSelectAllChange 内部已调用 syncAncestors；为保险此处再调用一次（幂等）
+      syncAncestors(this.menu);
     },
   },
 };
