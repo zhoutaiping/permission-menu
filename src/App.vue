@@ -28,6 +28,7 @@
 
 <script>
 import menuData from './data/menu';
+import { ensureUniqueIds } from './utils/menu';
 import SidebarMenu from './components/SidebarMenu.vue';
 import PermissionDetail from './components/PermissionDetail.vue';
 
@@ -36,7 +37,8 @@ export default {
   components: { SidebarMenu, PermissionDetail },
   data() {
     return {
-      menu: menuData,
+      // 预处理：为重复 id 节点生成全局唯一的 _renderKey/_renderIndex，原始 id 保留不动
+      menu: ensureUniqueIds(menuData),
       activeId: 'all',
     };
   },

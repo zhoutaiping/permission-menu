@@ -4,9 +4,9 @@
       <!-- 有子菜单（childs 里含 menu 节点）：渲染 el-submenu -->
       <el-submenu
         v-if="hasMenuChild(item)"
-        :key="'submenu-' + item.id"
-        :index="String(item.id)"
-        :class="{ 'is-parent-active': activeId == String(item.id) }"
+        :key="'submenu-' + renderKey(item)"
+        :index="renderIndex(item)"
+        :class="{ 'is-parent-active': activeId == renderIndex(item) }"
       >
         <template slot="title">
           <span class="submenu-title" @click="onTitleClick(item)">
@@ -21,7 +21,7 @@
       </el-submenu>
 
       <!-- 无子菜单（叶子/按钮挂在 childs 里）：渲染叶子节点 -->
-      <el-menu-item v-else :key="'item-' + item.id" :index="String(item.id)">
+      <el-menu-item v-else :key="'item-' + renderKey(item)" :index="renderIndex(item)">
         <span slot="title">{{ item.name }}</span>
       </el-menu-item>
     </template>
@@ -56,13 +56,21 @@ export default {
     },
   },
   methods: {
+    // 渲染 key（用于 v-for :key，全局唯一；兼容未预处理的旧数据）
+    renderKey(item) {
+      return item._renderKey != null ? item._renderKey : String(item.id);
+    },
+    // 渲染 index（用于 el-menu-item / el-submenu 的 index，全局唯一；兼容旧数据）
+    renderIndex(item) {
+      return item._renderIndex != null ? String(item._renderIndex) : String(item.id);
+    },
     // 判断某节点 childs 里是否还有 menu 子节点（决定是否可展开）
     hasMenuChild(item) {
       return (item.childs || []).some((c) => c.meanType == 'menu');
     },
     // 点击父级文本 → 选中该节点（事件冒泡到 title 同时触发展开/收起）
     onTitleClick(item) {
-      this.$emit('select', String(item.id));
+      this.$emit('select', this.renderIndex(item));
     },
   },
 };

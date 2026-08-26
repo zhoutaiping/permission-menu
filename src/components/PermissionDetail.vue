@@ -47,7 +47,7 @@
             <span v-if="!row.buttons.length" class="empty-btn">—</span>
             <el-checkbox
               v-for="b in row.buttons"
-              :key="b.id"
+              :key="renderKey(b)"
               v-model="b.isOn"
               :true-label="2"
               :false-label="1"
@@ -109,6 +109,10 @@ export default {
     },
   },
   methods: {
+    // 渲染 key（用于 v-for :key，全局唯一；兼容未预处理的旧数据）
+    renderKey(item) {
+      return item._renderKey != null ? item._renderKey : String(item.id);
+    },
     buildRows() {
       const rows = [];
       if (this.activeId == 'all') {
