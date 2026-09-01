@@ -32,16 +32,14 @@
             ></el-switch>
           </template>
         </el-table-column>
-        <el-table-column label="查看" width="70" align="center">
+        <el-table-column label="查看权限" width="80" align="center">
           <template slot-scope="{ row }">
             <el-checkbox
               v-model="row._node.isOn"
               :true-label="2"
               :false-label="1"
               @change="(val) => onViewChange(row._node, val)"
-            ></el-checkbox>
-
-            查看
+            >查看</el-checkbox>
           </template>
         </el-table-column>
         <el-table-column label="操作权限" min-width="300">
