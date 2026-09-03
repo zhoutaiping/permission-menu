@@ -91,11 +91,16 @@ export default {
   font-weight: 600;
   border-right: 3px solid #409eff;
 }
+/* 覆盖 element-ui 默认：远祖 submenu（is-active）不高亮（避免一级菜单被误激活） */
 .sidebar-menu >>> .el-submenu.is-active > .el-submenu__title {
-  color: #409eff;
+  color: inherit;
+  background: transparent;
+  font-weight: normal;
+  border-right-color: transparent;
 }
-/* 父级菜单被单独选中时的 title 高亮 */
-.sidebar-menu >>> .el-submenu.is-parent-active > .el-submenu__title {
+/* 高亮：激活项自身（含一级菜单被选中）+ 激活项的直接父级 */
+.sidebar-menu >>> .el-submenu.is-self-active > .el-submenu__title,
+.sidebar-menu >>> .el-submenu.is-direct-parent-active > .el-submenu__title {
   background: #ecf5ff;
   color: #409eff;
   font-weight: 600;

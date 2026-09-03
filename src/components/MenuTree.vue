@@ -6,22 +6,32 @@
         v-if="hasMenuChild(item)"
         :key="'submenu-' + renderKey(item)"
         :index="renderIndex(item)"
-        :class="{ 'is-parent-active': activeId == renderIndex(item) }"
+        :class="{
+          'is-direct-parent-active': isDirectParent(item),
+          'is-self-active': activeId != null && String(activeId) === renderIndex(item),
+        }"
       >
         <template slot="title">
           <span class="submenu-title" @click="onTitleClick(item)">
             {{ item.name }}
           </span>
         </template>
+        <!-- 递归子菜单：转发 select 事件（element-ui 嵌套 el-menu 的 select 不会自动冒泡） -->
         <menu-tree
           :items="item.childs"
           :active-id="activeId"
           v-on="$listeners"
+          @select="$emit('select', $event)"
         ></menu-tree>
       </el-submenu>
 
       <!-- 无子菜单（叶子/按钮挂在 childs 里）：渲染叶子节点 -->
-      <el-menu-item v-else :key="'item-' + renderKey(item)" :index="renderIndex(item)">
+      <el-menu-item
+        v-else
+        :key="'item-' + renderKey(item)"
+        :index="renderIndex(item)"
+        @click.native="$emit('select', renderIndex(item))"
+      >
         <span slot="title">{{ item.name }}</span>
       </el-menu-item>
     </template>
@@ -67,6 +77,17 @@ export default {
     // 判断某节点 childs 里是否还有 menu 子节点（决定是否可展开）
     hasMenuChild(item) {
       return (item.childs || []).some((c) => c.meanType == 'menu');
+    },
+    /**
+     * 判断 item 是否为激活项（activeId）的直接父级菜单。
+     * 用于精准高亮：仅最近一层 submenu 高亮，避免一级（远祖）也被高亮。
+     */
+    isDirectParent(item) {
+      if (!this.activeId) return false;
+      const id = String(this.activeId);
+      return (item.childs || []).some(
+        (c) => String(c._renderIndex != null ? c._renderIndex : c.id) === id
+      );
     },
     // 点击父级文本 → 选中该节点（事件冒泡到 title 同时触发展开/收起）
     onTitleClick(item) {
