@@ -38,6 +38,7 @@
               v-model="row._node.isOn"
               :true-label="2"
               :false-label="1"
+              :disabled="isLocked(row._node)"
               @change="(val) => onViewChange(row._node, val)"
             >查看</el-checkbox>
           </template>
@@ -66,7 +67,7 @@
 </template>
 
 <script>
-import { findById, findTopLevel, findPosition, isFullyChecked, syncAncestors } from '../utils/menu';
+import { findById, findTopLevel, findPosition, isFullyChecked, syncAncestors, enforceLocked } from '../utils/menu';
 
 export default {
   name: 'PermissionDetail',
@@ -79,8 +80,29 @@ export default {
       type: String,
       default: 'all',
     },
+    // 默认锁定 code 列表：仅通过 props 从父组件传入；不传或为空数组时不锁定任何节点
+    lockedCodes: {
+      type: Array,
+      default: () => [],
+    },
+  },
+  created() {
+    // 初始化：先强制锁定节点选中，再聚合祖先链路（跳过锁定节点，避免被覆盖）
+    enforceLocked(this.menu, this.resolvedLockedCodes);
+    this.syncAll();
+  },
+  watch: {
+    // props 传入的 lockedCodes 变化时，重新强制锁定并联动
+    lockedCodes() {
+      enforceLocked(this.menu, this.resolvedLockedCodes);
+      this.syncAll();
+    },
   },
   computed: {
+    /** 实际生效的锁定 code 列表：完全由 props 提供 */
+    resolvedLockedCodes() {
+      return this.lockedCodes || [];
+    },
     rows() {
       return this.buildRows();
     },
@@ -182,34 +204,56 @@ export default {
       return isFullyChecked(node);
     },
 
+    /** 判断节点是否为锁定权限（默认选中且不可取消） */
+    isLocked(node) {
+      return !!node && this.resolvedLockedCodes.includes(String(node.code));
+    },
+
+    /** 祖先链路联动（跳过锁定节点，避免其 isOn 被聚合覆盖） */
+    syncAll() {
+      syncAncestors(this.menu, (n) => this.isLocked(n));
+    },
+
     /** 全选开关变化 → 设置查看 + 所有按钮的 isOn */
     onSelectAllChange(node, val) {
       if (!node) return;
       const v = val ? 2 : 1;
+      if (this.isLocked(node)) {
+        // 锁定节点：查看强制保持勾选，按钮仍可跟随全选
+        (node.childs || []).forEach((c) => {
+          if (c.meanType !== 'menu') c.isOn = v;
+        });
+        node.isOn = 2;
+        this.syncAll();
+        return;
+      }
       node.isOn = v;
       (node.childs || []).forEach((c) => {
         if (c.meanType !== 'menu') c.isOn = v;
       });
-      // 上行同步：三级→二级→一级 联动
-      syncAncestors(this.menu);
+      this.syncAll();
     },
 
     /**
      * 查看 checkbox 变化 → 只改自身查看状态，不联动任何按钮；
+     * 锁定节点：查看不可取消（强制保持勾选）；
      * 规则3：只要存在已勾选的操作权限按钮，查看不可取消（强制保持勾选）。
      */
     onViewChange(node, val) {
       if (!node) return;
+      if (this.isLocked(node)) {
+        node.isOn = 2; // 锁定节点查看不可取消
+        return;
+      }
       const buttons = (node.childs || []).filter((c) => c.meanType !== 'menu');
       if (val !== 2 && buttons.some((b) => b.isOn == 2)) {
         // v-model 已把 isOn 置为 1，这里强制恢复，实现"查看无法取消"
         node.isOn = 2;
-        syncAncestors(this.menu);
+        this.syncAll();
         return;
       }
       node.isOn = val;
-      // 上行同步：三级→二级→一级 联动
-      syncAncestors(this.menu);
+      this.syncAll();
     },
 
     /**
@@ -225,8 +269,7 @@ export default {
       if (buttons.some((b) => b.isOn == 2)) {
         node.isOn = 2;
       }
-      // 上行同步：三级→二级→一级 联动
-      syncAncestors(this.menu);
+      this.syncAll();
     },
 
     /** 表头全选 checkbox 变化 → 对所有行同步 */
@@ -235,8 +278,8 @@ export default {
       this.rows.forEach((r) => {
         this.onSelectAllChange(r._node, val);
       });
-      // onSelectAllChange 内部已调用 syncAncestors；为保险此处再调用一次（幂等）
-      syncAncestors(this.menu);
+      // onSelectAllChange 内部已调用 syncAll；为保险此处再调用一次（幂等）
+      this.syncAll();
     },
   },
 };

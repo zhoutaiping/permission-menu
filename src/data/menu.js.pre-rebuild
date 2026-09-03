@@ -239,8 +239,7 @@ const menu = [
                                 childs: [],
                                 isOn: null,
                                 meanType: null,
-                                namePath:
-                                    '["项目管理", "项目总表", "关联人员", "添加/删除/编辑"]',
+                                namePath: '["项目管理", "项目总表", "关联人员", "添加/删除/编辑"]',
                                 namePathStr: '项目管理 / 项目总表 / 关联人员 / 添加/删除/编辑'
                             },
                             {
@@ -257,10 +256,8 @@ const menu = [
                                 childs: [],
                                 isOn: null,
                                 meanType: null,
-                                namePath:
-                                    '["项目管理", "项目总表", "关联人员", "同步经理及项目分层"]',
-                                namePathStr:
-                                    '项目管理 / 项目总表 / 关联人员 / 同步经理及项目分层'
+                                namePath: '["项目管理", "项目总表", "关联人员", "同步经理及项目分层"]',
+                                namePathStr: '项目管理 / 项目总表 / 关联人员 / 同步经理及项目分层'
                             }
                         ],
                         isOn: null,
@@ -363,10 +360,8 @@ const menu = [
                                 childs: [],
                                 isOn: null,
                                 meanType: null,
-                                namePath:
-                                    '["资产运营(租赁)", "运营项目列表", "采集方案", "采集方案-采集器-添加/删除 采集器"]',
-                                namePathStr:
-                                    '资产运营(租赁) / 运营项目列表 / 采集方案 / 采集方案-采集器-添加/删除 采集器'
+                                namePath: '["资产运营(租赁)", "运营项目列表", "采集方案", "采集方案-采集器-添加/删除 采集器"]',
+                                namePathStr: '资产运营(租赁) / 运营项目列表 / 采集方案 / 采集方案-采集器-添加/删除 采集器'
                             },
                             {
                                 id: 75,
@@ -382,10 +377,8 @@ const menu = [
                                 childs: [],
                                 isOn: null,
                                 meanType: null,
-                                namePath:
-                                    '["资产运营(租赁)", "运营项目列表", "采集方案", "采集方案-电表-列表操作列 配置、删除"]',
-                                namePathStr:
-                                    '资产运营(租赁) / 运营项目列表 / 采集方案 / 采集方案-电表-列表操作列 配置、删除'
+                                namePath: '["资产运营(租赁)", "运营项目列表", "采集方案", "采集方案-电表-列表操作列 配置、删除"]',
+                                namePathStr: '资产运营(租赁) / 运营项目列表 / 采集方案 / 采集方案-电表-列表操作列 配置、删除'
                             },
                             {
                                 id: 76,
@@ -401,10 +394,8 @@ const menu = [
                                 childs: [],
                                 isOn: null,
                                 meanType: null,
-                                namePath:
-                                    '["资产运营(租赁)", "运营项目列表", "采集方案", "采集方案-电表-绑定关系设置"]',
-                                namePathStr:
-                                    '资产运营(租赁) / 运营项目列表 / 采集方案 / 采集方案-电表-绑定关系设置'
+                                namePath: '["资产运营(租赁)", "运营项目列表", "采集方案", "采集方案-电表-绑定关系设置"]',
+                                namePathStr: '资产运营(租赁) / 运营项目列表 / 采集方案 / 采集方案-电表-绑定关系设置'
                             },
                             {
                                 id: 77,
@@ -420,10 +411,8 @@ const menu = [
                                 childs: [],
                                 isOn: null,
                                 meanType: null,
-                                namePath:
-                                    '["资产运营(租赁)", "运营项目列表", "采集方案", "采集方案-GPS"]',
-                                namePathStr:
-                                    '资产运营(租赁) / 运营项目列表 / 采集方案 / 采集方案-GPS'
+                                namePath: '["资产运营(租赁)", "运营项目列表", "采集方案", "采集方案-GPS"]',
+                                namePathStr: '资产运营(租赁) / 运营项目列表 / 采集方案 / 采集方案-GPS'
                             }
                         ],
                         isOn: null,
@@ -448,10 +437,30 @@ const menu = [
                         namePath: '["项目管理", "项目总表", "采集原值"]',
                         namePathStr: '项目管理 / 项目总表 / 采集原值',
                         childs: [
-                            { id: '22-2', parentId: "22", name: "详情-采集原值-GPS", code: "RA1/A19/A" },
-                            { id: '22-3', parentId: "22", name: "监测数据GPS-导出", code: "RA1/A19/A/G1" },
-                            { id: '22-2', parentId: "22", name: "监测数据GPS-位置详情", code: "RA1/A19/A/G2" },
-                            { id: '22-4', parentId: "22", name: "监测数据GPS详情-导出", code: "RA1/A19/A/G4" },
+                            {
+                                id: '22-2',
+                                parentId: "22",
+                                name: "详情-采集原值-GPS",
+                                code: "RA1/A19/A"
+                            },
+                            {
+                                id: '22-3',
+                                parentId: "22",
+                                name: "监测数据GPS-导出",
+                                code: "RA1/A19/A/G1"
+                            },
+                            {
+                                id: '22-2',
+                                parentId: "22",
+                                name: "监测数据GPS-位置详情",
+                                code: "RA1/A19/A/G2"
+                            },
+                            {
+                                id: '22-4',
+                                parentId: "22",
+                                name: "监测数据GPS详情-导出",
+                                code: "RA1/A19/A/G4"
+                            }
                         ]
                     },
                     {
@@ -470,9 +479,13 @@ const menu = [
                         meanType: 'menu',
                         namePath: '["项目管理", "项目总表", "承载企业"]',
                         namePathStr: '项目管理 / 项目总表 / 承载企业',
-
                         childs: [
-                            { id: '23-1', parentId: "23", name: "新增、编辑、删除", code: "RA1/A14/A1" },
+                            {
+                                id: '23-1',
+                                parentId: "23",
+                                name: "新增、编辑、删除",
+                                code: "RA1/A14/A1"
+                            }
                         ]
                     }
                 ],
@@ -589,8 +602,7 @@ const menu = [
                                 childs: [],
                                 isOn: null,
                                 meanType: null,
-                                namePath:
-                                    '["在建项目(租赁)", "在建项目列表", "列表", "结束项目"]',
+                                namePath: '["在建项目(租赁)", "在建项目列表", "列表", "结束项目"]',
                                 namePathStr: '在建项目(租赁) / 在建项目列表 / 列表 / 结束项目'
                             },
                             {
@@ -607,8 +619,7 @@ const menu = [
                                 childs: [],
                                 isOn: null,
                                 meanType: null,
-                                namePath:
-                                    '["在建项目(租赁)", "在建项目列表", "列表", "导出项目"]',
+                                namePath: '["在建项目(租赁)", "在建项目列表", "列表", "导出项目"]',
                                 namePathStr: '在建项目(租赁) / 在建项目列表 / 列表 / 导出项目'
                             },
                             {
@@ -625,8 +636,7 @@ const menu = [
                                 childs: [],
                                 isOn: null,
                                 meanType: null,
-                                namePath:
-                                    '["在建项目(租赁)", "在建项目列表", "列表", "删除项目"]',
+                                namePath: '["在建项目(租赁)", "在建项目列表", "列表", "删除项目"]',
                                 namePathStr: '在建项目(租赁) / 在建项目列表 / 列表 / 删除项目'
                             },
                             {
@@ -643,8 +653,7 @@ const menu = [
                                 childs: [],
                                 isOn: null,
                                 meanType: null,
-                                namePath:
-                                    '["在建项目(租赁)", "在建项目列表", "列表", "查看基本信息"]',
+                                namePath: '["在建项目(租赁)", "在建项目列表", "列表", "查看基本信息"]',
                                 namePathStr: '在建项目(租赁) / 在建项目列表 / 列表 / 查看基本信息'
                             }
                         ],
@@ -682,7 +691,12 @@ const menu = [
                         name: '基本信息',
                         pid: 28,
                         childs: [
-                            { id: '3-1-3-1', parentId: "3-1-3", name: "基本信息-查看实控人/合同金额/剩余本金/投放金额/投放进度", code: "RF/F1/F3/F1" },
+                            {
+                                id: '3-1-3-1',
+                                parentId: "3-1-3",
+                                name: "基本信息-查看实控人/合同金额/剩余本金/投放金额/投放进度",
+                                code: "RF/F1/F3/F1"
+                            }
                         ],
                         isOn: null,
                         meanType: 'menu',
@@ -784,8 +798,7 @@ const menu = [
                                 childs: [],
                                 isOn: null,
                                 meanType: null,
-                                namePath:
-                                    '["在建项目(租赁)", "在建项目列表", "现场巡查", "删除"]',
+                                namePath: '["在建项目(租赁)", "在建项目列表", "现场巡查", "删除"]',
                                 namePathStr: '在建项目(租赁) / 在建项目列表 / 现场巡查 / 删除'
                             },
                             {
@@ -802,8 +815,7 @@ const menu = [
                                 childs: [],
                                 isOn: null,
                                 meanType: null,
-                                namePath:
-                                    '["在建项目(租赁)", "在建项目列表", "现场巡查", "导出"]',
+                                namePath: '["在建项目(租赁)", "在建项目列表", "现场巡查", "导出"]',
                                 namePathStr: '在建项目(租赁) / 在建项目列表 / 现场巡查 / 导出'
                             }
                         ],
@@ -890,8 +902,7 @@ const menu = [
                                 childs: [],
                                 isOn: null,
                                 meanType: null,
-                                namePath:
-                                    '["在建项目(租赁)", "在建项目列表", "项目文档", "新增"]',
+                                namePath: '["在建项目(租赁)", "在建项目列表", "项目文档", "新增"]',
                                 namePathStr: '在建项目(租赁) / 在建项目列表 / 项目文档 / 新增'
                             },
                             {
@@ -908,10 +919,8 @@ const menu = [
                                 childs: [],
                                 isOn: null,
                                 meanType: null,
-                                namePath:
-                                    '["在建项目(租赁)", "在建项目列表", "项目文档", "修改/删除"]',
-                                namePathStr:
-                                    '在建项目(租赁) / 在建项目列表 / 项目文档 / 修改/删除'
+                                namePath: '["在建项目(租赁)", "在建项目列表", "项目文档", "修改/删除"]',
+                                namePathStr: '在建项目(租赁) / 在建项目列表 / 项目文档 / 修改/删除'
                             }
                         ],
                         isOn: null,
@@ -1308,10 +1317,8 @@ const menu = [
                                 childs: [],
                                 isOn: null,
                                 meanType: null,
-                                namePath:
-                                    '["资产运营(租赁)", "运营项目列表", "列表", "操作-上传/录入"]',
-                                namePathStr:
-                                    '资产运营(租赁) / 运营项目列表 / 列表 / 操作-上传/录入'
+                                namePath: '["资产运营(租赁)", "运营项目列表", "列表", "操作-上传/录入"]',
+                                namePathStr: '资产运营(租赁) / 运营项目列表 / 列表 / 操作-上传/录入'
                             },
                             {
                                 id: 67,
@@ -1327,10 +1334,8 @@ const menu = [
                                 childs: [],
                                 isOn: null,
                                 meanType: null,
-                                namePath:
-                                    '["资产运营(租赁)", "运营项目列表", "列表", "操作-关闭/打开"]',
-                                namePathStr:
-                                    '资产运营(租赁) / 运营项目列表 / 列表 / 操作-关闭/打开'
+                                namePath: '["资产运营(租赁)", "运营项目列表", "列表", "操作-关闭/打开"]',
+                                namePathStr: '资产运营(租赁) / 运营项目列表 / 列表 / 操作-关闭/打开'
                             },
                             {
                                 id: 68,
@@ -1346,10 +1351,8 @@ const menu = [
                                 childs: [],
                                 isOn: null,
                                 meanType: null,
-                                namePath:
-                                    '["资产运营(租赁)", "运营项目列表", "列表", "操作-编辑/删除"]',
-                                namePathStr:
-                                    '资产运营(租赁) / 运营项目列表 / 列表 / 操作-编辑/删除'
+                                namePath: '["资产运营(租赁)", "运营项目列表", "列表", "操作-编辑/删除"]',
+                                namePathStr: '资产运营(租赁) / 运营项目列表 / 列表 / 操作-编辑/删除'
                             },
                             {
                                 id: 69,
@@ -1365,10 +1368,8 @@ const menu = [
                                 childs: [],
                                 isOn: null,
                                 meanType: null,
-                                namePath:
-                                    '["资产运营(租赁)", "运营项目列表", "列表", "操作-共享采集器"]',
-                                namePathStr:
-                                    '资产运营(租赁) / 运营项目列表 / 列表 / 操作-共享采集器'
+                                namePath: '["资产运营(租赁)", "运营项目列表", "列表", "操作-共享采集器"]',
+                                namePathStr: '资产运营(租赁) / 运营项目列表 / 列表 / 操作-共享采集器'
                             }
                         ],
                         isOn: null,
@@ -1388,9 +1389,26 @@ const menu = [
                         name: '基本信息',
                         pid: 64,
                         childs: [
-                            { id: '4-1-2-6', parentId: "4-1-2", name: "基本信息-编辑并网状态", code: "RG/G1/G2/G6", visible: false },
-                            { id: '4-1-2-7', parentId: "4-1-2", name: "基本信息-查看 合同金额/剩余本金/投放金额/投放比例/运营项目级别/运营状态/运营项目备注", code: "RG/G1/G2/G7" },
-                            { id: '4-1-2-7-1', parentId: "4-1-2-7", name: "基本信息-编辑运营状态", code: "RG/G1/G2/G7/G1", visible: false },
+                            {
+                                id: '4-1-2-6',
+                                parentId: "4-1-2",
+                                name: "基本信息-编辑并网状态",
+                                code: "RG/G1/G2/G6",
+                                visible: false
+                            },
+                            {
+                                id: '4-1-2-7',
+                                parentId: "4-1-2",
+                                name: "基本信息-查看 合同金额/剩余本金/投放金额/投放比例/运营项目级别/运营状态/运营项目备注",
+                                code: "RG/G1/G2/G7"
+                            },
+                            {
+                                id: '4-1-2-7-1',
+                                parentId: "4-1-2-7",
+                                name: "基本信息-编辑运营状态",
+                                code: "RG/G1/G2/G7/G1",
+                                visible: false
+                            }
                         ],
                         isOn: null,
                         meanType: 'menu',
@@ -1474,10 +1492,8 @@ const menu = [
                                 childs: [],
                                 isOn: null,
                                 meanType: null,
-                                namePath:
-                                    '["资产运营(租赁)", "运营项目列表", "监测数据", "监测数据GPS"]',
-                                namePathStr:
-                                    '资产运营(租赁) / 运营项目列表 / 监测数据 / 监测数据GPS'
+                                namePath: '["资产运营(租赁)", "运营项目列表", "监测数据", "监测数据GPS"]',
+                                namePathStr: '资产运营(租赁) / 运营项目列表 / 监测数据 / 监测数据GPS'
                             },
                             {
                                 id: 80,
@@ -1493,10 +1509,8 @@ const menu = [
                                 childs: [],
                                 isOn: null,
                                 meanType: null,
-                                namePath:
-                                    '["资产运营(租赁)", "运营项目列表", "监测数据", "监测数据GPS-导出"]',
-                                namePathStr:
-                                    '资产运营(租赁) / 运营项目列表 / 监测数据 / 监测数据GPS-导出'
+                                namePath: '["资产运营(租赁)", "运营项目列表", "监测数据", "监测数据GPS-导出"]',
+                                namePathStr: '资产运营(租赁) / 运营项目列表 / 监测数据 / 监测数据GPS-导出'
                             },
                             {
                                 id: 81,
@@ -1512,10 +1526,8 @@ const menu = [
                                 childs: [],
                                 isOn: null,
                                 meanType: null,
-                                namePath:
-                                    '["资产运营(租赁)", "运营项目列表", "监测数据", "监测数据GPS-位置详情"]',
-                                namePathStr:
-                                    '资产运营(租赁) / 运营项目列表 / 监测数据 / 监测数据GPS-位置详情'
+                                namePath: '["资产运营(租赁)", "运营项目列表", "监测数据", "监测数据GPS-位置详情"]',
+                                namePathStr: '资产运营(租赁) / 运营项目列表 / 监测数据 / 监测数据GPS-位置详情'
                             },
                             {
                                 id: 82,
@@ -1531,10 +1543,8 @@ const menu = [
                                 childs: [],
                                 isOn: null,
                                 meanType: null,
-                                namePath:
-                                    '["资产运营(租赁)", "运营项目列表", "监测数据", "监测数据GPS详情-导出"]',
-                                namePathStr:
-                                    '资产运营(租赁) / 运营项目列表 / 监测数据 / 监测数据GPS详情-导出'
+                                namePath: '["资产运营(租赁)", "运营项目列表", "监测数据", "监测数据GPS详情-导出"]',
+                                namePathStr: '资产运营(租赁) / 运营项目列表 / 监测数据 / 监测数据GPS详情-导出'
                             }
                         ],
                         isOn: null,
@@ -1585,10 +1595,8 @@ const menu = [
                                 childs: [],
                                 isOn: null,
                                 meanType: null,
-                                namePath:
-                                    '["资产运营(租赁)", "运营项目列表", "运营填报", "运营填报新增"]',
-                                namePathStr:
-                                    '资产运营(租赁) / 运营项目列表 / 运营填报 / 运营填报新增'
+                                namePath: '["资产运营(租赁)", "运营项目列表", "运营填报", "运营填报新增"]',
+                                namePathStr: '资产运营(租赁) / 运营项目列表 / 运营填报 / 运营填报新增'
                             }
                         ],
                         isOn: null,
@@ -1656,10 +1664,8 @@ const menu = [
                                 childs: [],
                                 isOn: null,
                                 meanType: null,
-                                namePath:
-                                    '["资产运营(租赁)", "运营项目列表", "备注", "操作-新增/编辑/删除"]',
-                                namePathStr:
-                                    '资产运营(租赁) / 运营项目列表 / 备注 / 操作-新增/编辑/删除'
+                                namePath: '["资产运营(租赁)", "运营项目列表", "备注", "操作-新增/编辑/删除"]',
+                                namePathStr: '资产运营(租赁) / 运营项目列表 / 备注 / 操作-新增/编辑/删除'
                             }
                         ],
                         isOn: null,
@@ -1750,8 +1756,7 @@ const menu = [
                         childs: [],
                         isOn: null,
                         meanType: null,
-                        namePath:
-                            '["资产运营(租赁)", "发电运营项目分析", "发电运营项目列表"]',
+                        namePath: '["资产运营(租赁)", "发电运营项目分析", "发电运营项目列表"]',
                         namePathStr: '资产运营(租赁) / 发电运营项目分析 / 发电运营项目列表'
                     },
                     {
@@ -1768,10 +1773,8 @@ const menu = [
                         childs: [],
                         isOn: null,
                         meanType: null,
-                        namePath:
-                            '["资产运营(租赁)", "发电运营项目分析", "导出发电运营项目数据"]',
-                        namePathStr:
-                            '资产运营(租赁) / 发电运营项目分析 / 导出发电运营项目数据'
+                        namePath: '["资产运营(租赁)", "发电运营项目分析", "导出发电运营项目数据"]',
+                        namePathStr: '资产运营(租赁) / 发电运营项目分析 / 导出发电运营项目数据'
                     },
                     {
                         id: 96,
@@ -1787,8 +1790,7 @@ const menu = [
                         childs: [],
                         isOn: null,
                         meanType: null,
-                        namePath:
-                            '["资产运营(租赁)", "发电运营项目分析", "发电运营项目地区"]',
+                        namePath: '["资产运营(租赁)", "发电运营项目分析", "发电运营项目地区"]',
                         namePathStr: '资产运营(租赁) / 发电运营项目分析 / 发电运营项目地区'
                     },
                     {
@@ -1805,8 +1807,7 @@ const menu = [
                         childs: [],
                         isOn: null,
                         meanType: null,
-                        namePath:
-                            '["资产运营(租赁)", "发电运营项目分析", "发电运营项目详情"]',
+                        namePath: '["资产运营(租赁)", "发电运营项目分析", "发电运营项目详情"]',
                         namePathStr: '资产运营(租赁) / 发电运营项目分析 / 发电运营项目详情'
                     },
                     {
@@ -1823,10 +1824,8 @@ const menu = [
                         childs: [],
                         isOn: null,
                         meanType: null,
-                        namePath:
-                            '["资产运营(租赁)", "发电运营项目分析", "发电运营项目详情列表"]',
-                        namePathStr:
-                            '资产运营(租赁) / 发电运营项目分析 / 发电运营项目详情列表'
+                        namePath: '["资产运营(租赁)", "发电运营项目分析", "发电运营项目详情列表"]',
+                        namePathStr: '资产运营(租赁) / 发电运营项目分析 / 发电运营项目详情列表'
                     },
                     {
                         id: 99,
@@ -1842,10 +1841,8 @@ const menu = [
                         childs: [],
                         isOn: null,
                         meanType: null,
-                        namePath:
-                            '["资产运营(租赁)", "发电运营项目分析", "导出发电运营项目详情列表"]',
-                        namePathStr:
-                            '资产运营(租赁) / 发电运营项目分析 / 导出发电运营项目详情列表'
+                        namePath: '["资产运营(租赁)", "发电运营项目分析", "导出发电运营项目详情列表"]',
+                        namePathStr: '资产运营(租赁) / 发电运营项目分析 / 导出发电运营项目详情列表'
                     }
                 ],
                 isOn: null,
@@ -1879,8 +1876,7 @@ const menu = [
                         childs: [],
                         isOn: null,
                         meanType: null,
-                        namePath:
-                            '["资产运营(租赁)", "非标运营项目分析", "导出运营数据列表"]',
+                        namePath: '["资产运营(租赁)", "非标运营项目分析", "导出运营数据列表"]',
                         namePathStr: '资产运营(租赁) / 非标运营项目分析 / 导出运营数据列表'
                     },
                     {
@@ -1897,8 +1893,7 @@ const menu = [
                         childs: [],
                         isOn: null,
                         meanType: null,
-                        namePath:
-                            '["资产运营(租赁)", "非标运营项目分析", "查看运营数据详情"]',
+                        namePath: '["资产运营(租赁)", "非标运营项目分析", "查看运营数据详情"]',
                         namePathStr: '资产运营(租赁) / 非标运营项目分析 / 查看运营数据详情'
                     },
                     {
@@ -1915,8 +1910,7 @@ const menu = [
                         childs: [],
                         isOn: null,
                         meanType: null,
-                        namePath:
-                            '["资产运营(租赁)", "非标运营项目分析", "导出运营数据详情"]',
+                        namePath: '["资产运营(租赁)", "非标运营项目分析", "导出运营数据详情"]',
                         namePathStr: '资产运营(租赁) / 非标运营项目分析 / 导出运营数据详情'
                     }
                 ],
@@ -1925,18 +1919,38 @@ const menu = [
                 namePath: '["资产运营(租赁)", "非标运营项目分析"]',
                 namePathStr: '资产运营(租赁) / 非标运营项目分析'
             },
-            // 新增 --begin
             {
-                id: '4-4', pid: 63, name: "监管接入", code: "RA1/A10",
+                id: '4-4',
+                pid: 63,
+                name: "监管接入",
+                code: "RA1/A10",
                 childs: [
-                    { id: '4-4-1', parentId: "4-4", name: "方案", code: "RA1/A10/A1" },
-                    { id: '4-4-2', parentId: "4-4", name: "发货", code: "RA1/A10/A2" },
-                    { id: '4-4-3', parentId: "4-4", name: "安装", code: "RA1/A10/A3" },
-                    { id: '4-4-4', parentId: "4-4", name: "备注", code: "RA1/A10/A4" },
+                    {
+                        id: '4-4-1',
+                        parentId: "4-4",
+                        name: "方案",
+                        code: "RA1/A10/A1"
+                    },
+                    {
+                        id: '4-4-2',
+                        parentId: "4-4",
+                        name: "发货",
+                        code: "RA1/A10/A2"
+                    },
+                    {
+                        id: '4-4-3',
+                        parentId: "4-4",
+                        name: "安装",
+                        code: "RA1/A10/A3"
+                    },
+                    {
+                        id: '4-4-4',
+                        parentId: "4-4",
+                        name: "备注",
+                        code: "RA1/A10/A4"
+                    }
                 ]
             },
-
-            // end
             {
                 id: 104,
                 code: 'RA2/A1',
@@ -1975,10 +1989,8 @@ const menu = [
                                 childs: [],
                                 isOn: null,
                                 meanType: null,
-                                namePath:
-                                    '["资产运营(租赁)", "数据上传", "运营填报列表", "上传数据"]',
-                                namePathStr:
-                                    '资产运营(租赁) / 数据上传 / 运营填报列表 / 上传数据'
+                                namePath: '["资产运营(租赁)", "数据上传", "运营填报列表", "上传数据"]',
+                                namePathStr: '资产运营(租赁) / 数据上传 / 运营填报列表 / 上传数据'
                             },
                             {
                                 id: 107,
@@ -1994,10 +2006,8 @@ const menu = [
                                 childs: [],
                                 isOn: null,
                                 meanType: null,
-                                namePath:
-                                    '["资产运营(租赁)", "数据上传", "运营填报列表", "查看数据详情"]',
-                                namePathStr:
-                                    '资产运营(租赁) / 数据上传 / 运营填报列表 / 查看数据详情'
+                                namePath: '["资产运营(租赁)", "数据上传", "运营填报列表", "查看数据详情"]',
+                                namePathStr: '资产运营(租赁) / 数据上传 / 运营填报列表 / 查看数据详情'
                             },
                             {
                                 id: 108,
@@ -2013,10 +2023,8 @@ const menu = [
                                 childs: [],
                                 isOn: null,
                                 meanType: null,
-                                namePath:
-                                    '["资产运营(租赁)", "数据上传", "运营填报列表", "删除数据"]',
-                                namePathStr:
-                                    '资产运营(租赁) / 数据上传 / 运营填报列表 / 删除数据'
+                                namePath: '["资产运营(租赁)", "数据上传", "运营填报列表", "删除数据"]',
+                                namePathStr: '资产运营(租赁) / 数据上传 / 运营填报列表 / 删除数据'
                             }
                         ],
                         isOn: null,
@@ -2050,10 +2058,8 @@ const menu = [
                                 childs: [],
                                 isOn: null,
                                 meanType: null,
-                                namePath:
-                                    '["资产运营(租赁)", "数据上传", "财报上传列表", "新增财报上传"]',
-                                namePathStr:
-                                    '资产运营(租赁) / 数据上传 / 财报上传列表 / 新增财报上传'
+                                namePath: '["资产运营(租赁)", "数据上传", "财报上传列表", "新增财报上传"]',
+                                namePathStr: '资产运营(租赁) / 数据上传 / 财报上传列表 / 新增财报上传'
                             },
                             {
                                 id: 111,
@@ -2069,10 +2075,8 @@ const menu = [
                                 childs: [],
                                 isOn: null,
                                 meanType: null,
-                                namePath:
-                                    '["资产运营(租赁)", "数据上传", "财报上传列表", "编辑财报上传"]',
-                                namePathStr:
-                                    '资产运营(租赁) / 数据上传 / 财报上传列表 / 编辑财报上传'
+                                namePath: '["资产运营(租赁)", "数据上传", "财报上传列表", "编辑财报上传"]',
+                                namePathStr: '资产运营(租赁) / 数据上传 / 财报上传列表 / 编辑财报上传'
                             },
                             {
                                 id: 112,
@@ -2088,10 +2092,8 @@ const menu = [
                                 childs: [],
                                 isOn: null,
                                 meanType: null,
-                                namePath:
-                                    '["资产运营(租赁)", "数据上传", "财报上传列表", "删除财报上传"]',
-                                namePathStr:
-                                    '资产运营(租赁) / 数据上传 / 财报上传列表 / 删除财报上传'
+                                namePath: '["资产运营(租赁)", "数据上传", "财报上传列表", "删除财报上传"]',
+                                namePathStr: '资产运营(租赁) / 数据上传 / 财报上传列表 / 删除财报上传'
                             },
                             {
                                 id: 113,
@@ -2107,10 +2109,8 @@ const menu = [
                                 childs: [],
                                 isOn: null,
                                 meanType: null,
-                                namePath:
-                                    '["资产运营(租赁)", "数据上传", "财报上传列表", "财报配平"]',
-                                namePathStr:
-                                    '资产运营(租赁) / 数据上传 / 财报上传列表 / 财报配平'
+                                namePath: '["资产运营(租赁)", "数据上传", "财报上传列表", "财报配平"]',
+                                namePathStr: '资产运营(租赁) / 数据上传 / 财报上传列表 / 财报配平'
                             }
                         ],
                         isOn: null,
@@ -2168,10 +2168,8 @@ const menu = [
                         childs: [],
                         isOn: null,
                         meanType: null,
-                        namePath:
-                            '["资产运营(租赁)", "资产监测(经租)", "电池资产", "电池列表导出"]',
-                        namePathStr:
-                            '资产运营(租赁) / 资产监测(经租) / 电池资产 / 电池列表导出'
+                        namePath: '["资产运营(租赁)", "资产监测(经租)", "电池资产", "电池列表导出"]',
+                        namePathStr: '资产运营(租赁) / 资产监测(经租) / 电池资产 / 电池列表导出'
                     },
                     {
                         id: 117,
@@ -2187,10 +2185,8 @@ const menu = [
                         childs: [],
                         isOn: null,
                         meanType: null,
-                        namePath:
-                            '["资产运营(租赁)", "资产监测(经租)", "电池资产", "充电记录导出"]',
-                        namePathStr:
-                            '资产运营(租赁) / 资产监测(经租) / 电池资产 / 充电记录导出'
+                        namePath: '["资产运营(租赁)", "资产监测(经租)", "电池资产", "充电记录导出"]',
+                        namePathStr: '资产运营(租赁) / 资产监测(经租) / 电池资产 / 充电记录导出'
                     },
                     {
                         id: 118,
@@ -2206,10 +2202,8 @@ const menu = [
                         childs: [],
                         isOn: null,
                         meanType: null,
-                        namePath:
-                            '["资产运营(租赁)", "资产监测(经租)", "电池资产", "使用记录导出"]',
-                        namePathStr:
-                            '资产运营(租赁) / 资产监测(经租) / 电池资产 / 使用记录导出'
+                        namePath: '["资产运营(租赁)", "资产监测(经租)", "电池资产", "使用记录导出"]',
+                        namePathStr: '资产运营(租赁) / 资产监测(经租) / 电池资产 / 使用记录导出'
                     }
                 ],
                 isOn: null,
@@ -2639,10 +2633,8 @@ const menu = [
                         childs: [],
                         isOn: null,
                         meanType: 'menu',
-                        namePath:
-                            '["户用电站(经风海)", "户用电站分析", "户用电站分析-渠道详情"]',
-                        namePathStr:
-                            '户用电站(经风海) / 户用电站分析 / 户用电站分析-渠道详情'
+                        namePath: '["户用电站(经风海)", "户用电站分析", "户用电站分析-渠道详情"]',
+                        namePathStr: '户用电站(经风海) / 户用电站分析 / 户用电站分析-渠道详情'
                     },
                     {
                         id: 144,
@@ -2658,10 +2650,8 @@ const menu = [
                         childs: [],
                         isOn: null,
                         meanType: 'menu',
-                        namePath:
-                            '["户用电站(经风海)", "户用电站分析", "户用电站分析-经销商详情"]',
-                        namePathStr:
-                            '户用电站(经风海) / 户用电站分析 / 户用电站分析-经销商详情'
+                        namePath: '["户用电站(经风海)", "户用电站分析", "户用电站分析-经销商详情"]',
+                        namePathStr: '户用电站(经风海) / 户用电站分析 / 户用电站分析-经销商详情'
                     }
                 ],
                 isOn: null,
@@ -3138,20 +3128,34 @@ const menu = [
                 namePath: '["资产商务管理", "视频双录"]',
                 namePathStr: '资产商务管理 / 视频双录'
             },
-
-            // 新增-begin
             {
-                id: '10-1', pid: 165, name: "人脸识别设置", code: "RM/M1",
-                childs: [{ id: '10-1-1', parentId: "10-1", name: "新增/删除", code: "RM/M1/M1" },]
+                id: '10-1',
+                pid: 165,
+                name: "人脸识别设置",
+                code: "RM/M1",
+                childs: [
+                    {
+                        id: '10-1-1',
+                        parentId: "10-1",
+                        name: "新增/删除",
+                        code: "RM/M1/M1"
+                    }
+                ]
             },
-
             {
-                id: '10-2', pid: 165, name: "双录人员管理", code: "RM/M2",
-                childs: [{ id: '10-2-1', parentId: "10-2", name: "新增/删除", code: "RM/M2/M1" },]
-            },
-
-            // 新增-end
-
+                id: '10-2',
+                pid: 165,
+                name: "双录人员管理",
+                code: "RM/M2",
+                childs: [
+                    {
+                        id: '10-2-1',
+                        parentId: "10-2",
+                        name: "新增/删除",
+                        code: "RM/M2/M1"
+                    }
+                ]
+            }
         ],
         isOn: null,
         meanType: 'menu',
@@ -3257,7 +3261,6 @@ const menu = [
                 namePath: '["参数管理", "实控人管理"]',
                 namePathStr: '参数管理 / 实控人管理'
             },
-
             {
                 id: 178,
                 code: 'RE/E15',
@@ -3275,7 +3278,6 @@ const menu = [
                 namePath: '["参数管理", "大屏预警数据"]',
                 namePathStr: '参数管理 / 大屏预警数据'
             },
-
             {
                 id: 179,
                 code: 'RE/E6',
@@ -3311,32 +3313,74 @@ const menu = [
                 namePath: '["参数管理", "行为监控"]',
                 namePathStr: '参数管理 / 行为监控'
             },
-            //  新增-begin
             {
-                id: '11-5', parentId: "172", name: "监管户运维管理", code: "RE/E5",
-                childs: [{ id: '11-5-1', parentId: "11-5", name: "新增/查看/删除 监管户", code: "RE/E5/E1" },]
-            },
-
-            {
-                id: '11-8', parentId: "172", name: "审批人变更", code: "RE/E8",
+                id: '11-5',
+                parentId: "172",
+                name: "监管户运维管理",
+                code: "RE/E5",
                 childs: [
-                    { id: '11-8-1', parentId: "11-8", name: "查看详情", code: "RE/E8/E1" },
-                    { id: '11-8-2', parentId: "11-8", name: "查看审批流程", code: "RE/E8/E2" },
-                    { id: '11-8-3', parentId: "11-8", name: "审批人修改", code: "RE/E8/E3" },
+                    {
+                        id: '11-5-1',
+                        parentId: "11-5",
+                        name: "新增/查看/删除 监管户",
+                        code: "RE/E5/E1"
+                    }
                 ]
             },
-
             {
-                id: '11-9', parentId: "172", name: "里程划分自定义", code: "RE/E9",
-                childs: [{ id: '11-9-1', parentId: "11-9", name: "新增/编辑/删除/插入 区间", code: "RE/E9/E1" },]
+                id: '11-8',
+                parentId: "172",
+                name: "审批人变更",
+                code: "RE/E8",
+                childs: [
+                    {
+                        id: '11-8-1',
+                        parentId: "11-8",
+                        name: "查看详情",
+                        code: "RE/E8/E1"
+                    },
+                    {
+                        id: '11-8-2',
+                        parentId: "11-8",
+                        name: "查看审批流程",
+                        code: "RE/E8/E2"
+                    },
+                    {
+                        id: '11-8-3',
+                        parentId: "11-8",
+                        name: "审批人修改",
+                        code: "RE/E8/E3"
+                    }
+                ]
             },
-
             {
-                id: '11-11', parentId: "172", name: "户用电站管理", code: "RE/E12",
-                childs: [{ id: '11-11-1', parentId: "11-11", name: "电站管理-新增/编辑/删除", code: "RH/H1/H2" },]
+                id: '11-9',
+                parentId: "172",
+                name: "里程划分自定义",
+                code: "RE/E9",
+                childs: [
+                    {
+                        id: '11-9-1',
+                        parentId: "11-9",
+                        name: "新增/编辑/删除/插入 区间",
+                        code: "RE/E9/E1"
+                    }
+                ]
             },
-
-            //  新增-end
+            {
+                id: '11-11',
+                parentId: "172",
+                name: "户用电站管理",
+                code: "RE/E12",
+                childs: [
+                    {
+                        id: '11-11-1',
+                        parentId: "11-11",
+                        name: "电站管理-新增/编辑/删除",
+                        code: "RH/H1/H2"
+                    }
+                ]
+            }
         ],
         isOn: null,
         meanType: 'menu',
@@ -3563,19 +3607,53 @@ const menu = [
                 namePath: '["系统配置", "定时器执行日志"]',
                 namePathStr: '系统配置 / 定时器执行日志'
             },
-            //  补充
-            { id: '12-2', parentId: "192", name: "电站补数据日志", code: "RQ/Q2" },
-            { id: '12-3', parentId: "192", name: "爱光伏同步日志", code: "RQ/Q3" },
-            { id: '12-4', parentId: "192", name: "平台转发同步日志", code: "RQ/Q4" },
-            { id: '12-5', parentId: "192", name: "平台转发配置", code: "RQ/Q5" },
-            //  补充 - end
             {
-                id: 194, code: 'RQ/Q5', description: '平台转发配置',  level: 2,  parentCode: null,  orderNum: 2,  modules: null,  groupId: null,name: '平台转发配置',pid: 192,isOn: null, meanType: 'menu', namePath: '["系统配置", "平台转发配置"]', namePathStr: '系统配置 / 平台转发配置',
-                childs: [],
+                id: '12-2',
+                parentId: "192",
+                name: "电站补数据日志",
+                code: "RQ/Q2"
             },
-            //  补充 - begin
-            { id: '12-7', parentId: "192", name: "邮件配置", code: "RQ/Q7" },
-            //  补充 - end
+            {
+                id: '12-3',
+                parentId: "192",
+                name: "爱光伏同步日志",
+                code: "RQ/Q3"
+            },
+            {
+                id: '12-4',
+                parentId: "192",
+                name: "平台转发同步日志",
+                code: "RQ/Q4"
+            },
+            {
+                id: '12-5',
+                parentId: "192",
+                name: "平台转发配置",
+                code: "RQ/Q5"
+            },
+            {
+                id: 194,
+                code: 'RQ/Q5',
+                description: '平台转发配置',
+                level: 2,
+                parentCode: null,
+                orderNum: 2,
+                modules: null,
+                groupId: null,
+                name: '平台转发配置',
+                pid: 192,
+                childs: [],
+                isOn: null,
+                meanType: 'menu',
+                namePath: '["系统配置", "平台转发配置"]',
+                namePathStr: '系统配置 / 平台转发配置'
+            },
+            {
+                id: '12-7',
+                parentId: "192",
+                name: "邮件配置",
+                code: "RQ/Q7"
+            }
         ],
         isOn: null,
         meanType: 'menu',
@@ -3583,9 +3661,22 @@ const menu = [
         namePathStr: '系统配置'
     },
     {
-      id: 195,  pid: 0, code: 'RZ', description: '帮助中心', level: 1,  parentCode: null,  orderNum: 12,  name: '帮助中心',  isOn: null,  meanType: 'help', namePath: '["帮助中心"]', namePathStr: '帮助中心',
-      childs: [],
+        id: 195,
+        code: 'RZ',
+        description: '帮助中心',
+        level: 1,
+        parentCode: null,
+        orderNum: 12,
+        modules: null,
+        groupId: null,
+        name: '帮助中心',
+        pid: 0,
+        childs: [],
+        isOn: null,
+        meanType: 'help',
+        namePath: '["帮助中心"]',
+        namePathStr: '帮助中心'
     }
-]
+];
 export { menu }
 export default menu

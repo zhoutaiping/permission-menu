@@ -3570,8 +3570,21 @@ const menu = [
             { id: '12-5', parentId: "192", name: "平台转发配置", code: "RQ/Q5" },
             //  补充 - end
             {
-                id: 194, code: 'RQ/Q5', description: '平台转发配置',  level: 2,  parentCode: null,  orderNum: 2,  modules: null,  groupId: null,name: '平台转发配置',pid: 192,isOn: null, meanType: 'menu', namePath: '["系统配置", "平台转发配置"]', namePathStr: '系统配置 / 平台转发配置',
+                id: 194,
+                code: 'RQ/Q5',
+                description: '平台转发配置',
+                level: 2,
+                parentCode: null,
+                orderNum: 2,
+                modules: null,
+                groupId: null,
+                name: '平台转发配置',
+                pid: 192,
                 childs: [],
+                isOn: null,
+                meanType: 'menu',
+                namePath: '["系统配置", "平台转发配置"]',
+                namePathStr: '系统配置 / 平台转发配置'
             },
             //  补充 - begin
             { id: '12-7', parentId: "192", name: "邮件配置", code: "RQ/Q7" },
@@ -3583,8 +3596,21 @@ const menu = [
         namePathStr: '系统配置'
     },
     {
-      id: 195,  pid: 0, code: 'RZ', description: '帮助中心', level: 1,  parentCode: null,  orderNum: 12,  name: '帮助中心',  isOn: null,  meanType: 'help', namePath: '["帮助中心"]', namePathStr: '帮助中心',
-      childs: [],
+        id: 195,
+        code: 'RZ',
+        description: '帮助中心',
+        level: 1,
+        parentCode: null,
+        orderNum: 12,
+        modules: null,
+        groupId: null,
+        name: '帮助中心',
+        pid: 0,
+        childs: [],
+        isOn: null,
+        meanType: 'help',
+        namePath: '["帮助中心"]',
+        namePathStr: '帮助中心'
     }
 ]
 export { menu }

@@ -5,7 +5,9 @@
   "description": "权限配置列表 - 左侧菜单（Vue2 + ElementUI）",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "flatten": "node scripts/flatten-menu.mjs",
+    "format": "node scripts/format-menu.mjs"
   },
   "dependencies": {
     "core-js": "^3.37.1",
@@ -15,7 +17,8 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "~5.0.8",
     "@vue/cli-service": "~5.0.8",
-    "vue-template-compiler": "^2.7.16"
+    "vue-template-compiler": "^2.7.16",
+    "xlsx": "^0.18.5"
   },
   "browserslist": [
     "> 1%",

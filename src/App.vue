@@ -16,10 +16,11 @@
           @select="handleSelect"
         ></sidebar-menu>
 
-        <!-- 右侧详情 -->
+        <!-- 右侧详情（可通过 locked-codes prop 传入默认锁定 code，不传则用组件内常量） -->
         <permission-detail
           :menu="menu"
           :active-id="activeId"
+          :locked-codes="lockedCodes"
         ></permission-detail>
       </div>
     </div>
@@ -28,7 +29,7 @@
 
 <script>
 import menuData from './data/menu';
-import { ensureUniqueIds, syncAncestors } from './utils/menu';
+import { ensureUniqueIds, enforceLocked } from './utils/menu';
 import SidebarMenu from './components/SidebarMenu.vue';
 import PermissionDetail from './components/PermissionDetail.vue';
 
@@ -40,18 +41,17 @@ export default {
       // 预处理：为重复 id 节点生成全局唯一的 _renderKey/_renderIndex，原始 id 保留不动
       menu: ensureUniqueIds(menuData),
       activeId: 'all',
+      // 默认选中且不可取消的权限 code（通过 props 传给 PermissionDetail）
+      lockedCodes: ['RAA2', 'RAA1/A1'],
     };
-  },
-  created() {
-    // 初始化时同步一次祖先链路（三级→二级→一级），保证初始数据一致
-    syncAncestors(this.menu);
   },
   methods: {
     handleSelect(index) {
       this.activeId = index;
     },
-    // 保存：打印所有节点（含选中状态），保留完整树形结构，不做扁平化
+    // 保存：先确保默认锁定节点 isOn=2，再打印所有节点（含选中状态），保留完整树形结构，不做扁平化
     handleSave() {
+      enforceLocked(this.menu, this.lockedCodes);
       const cloneTree = (nodes) =>
         nodes.map((n) => ({
           id: n.id,

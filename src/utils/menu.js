@@ -103,12 +103,15 @@ export function isFullyChecked(node) {
  * 只要某一二级菜单下存在任一三级菜单（meanType='menu'）已选中（isOn == 2），
  * 该二级菜单 isOn 即设为 2；全部三级均未选中时才设为 1。
  * 无三级子菜单的二级节点不处理（保持用户直接操作/按钮联动结果）。
+ * @param {Array} menu 菜单树
+ * @param {(node)=>boolean} [isLocked] 可选：返回 true 的节点不覆盖其 isOn（锁定节点恒为选中）
  * 原地修改 menu 数据，无返回值。
  */
-export function syncLevel2(menu) {
+export function syncLevel2(menu, isLocked) {
   (menu || []).forEach((l1) => {
     (l1.childs || []).forEach((l2) => {
       if (l2.meanType !== 'menu') return;
+      if (isLocked && isLocked(l2)) return;
       const subMenus = (l2.childs || []).filter((c) => c.meanType == 'menu');
       if (!subMenus.length) return;
       const anyChecked = subMenus.some((sm) => sm.isOn == 2);
@@ -121,10 +124,13 @@ export function syncLevel2(menu) {
  * 一级菜单 isOn 向上聚合：
  * 只要某一级菜单下存在任一二级菜单（meanType='menu'）已选中（isOn == 2），
  * 该一级菜单 isOn 即设为 2；全部二级均未选中时才设为 1。
+ * @param {Array} menu 菜单树
+ * @param {(node)=>boolean} [isLocked] 可选：返回 true 的节点不覆盖其 isOn
  * 原地修改 menu 数据，无返回值。
  */
-export function syncTopLevel(menu) {
+export function syncTopLevel(menu, isLocked) {
   (menu || []).forEach((l1) => {
+    if (isLocked && isLocked(l1)) return;
     const subMenus = (l1.childs || []).filter((c) => c.meanType == 'menu');
     if (!subMenus.length) return;
     const anyChecked = subMenus.some((sm) => sm.isOn == 2);
@@ -136,11 +142,26 @@ export function syncTopLevel(menu) {
  * 祖先链路向上聚合（先二级后一级，保证顺序依赖正确）：
  * - L2 根据其下三级菜单选中状态聚合
  * - L1 再根据聚合后的二级状态聚合
+ * @param {Array} menu 菜单树
+ * @param {(node)=>boolean} [isLocked] 可选：返回 true 的节点不覆盖其 isOn
  * 交互修改点（全选/查看/操作权限/表头全选）统一调用此入口即可。
  */
-export function syncAncestors(menu) {
-  syncLevel2(menu);
-  syncTopLevel(menu);
+export function syncAncestors(menu, isLocked) {
+  syncLevel2(menu, isLocked);
+  syncTopLevel(menu, isLocked);
+}
+
+/**
+ * 强制锁定：命中 codes 的节点 isOn 置为 2（默认选中）。
+ * 在聚合之前调用，保证锁定节点参与父级聚合时被视为"已选中"。
+ * @param {Array} menu 菜单树
+ * @param {Array} codes 需要锁定选中的 code 列表
+ */
+export function enforceLocked(menu, codes) {
+  const set = new Set((codes || []).map((c) => String(c)));
+  flatten(menu).forEach((n) => {
+    if (set.has(String(n.code != null ? n.code : ''))) n.isOn = 2;
+  });
 }
 
 /** 判断节点是否为按钮权限（meanType 为 button 或缺失 meanType） */
