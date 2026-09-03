@@ -61,16 +61,24 @@ export default {
   border-radius: 4px;
   background: #ffffff;
   overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .sidebar-header {
+  flex-shrink: 0;
   padding: 10px 14px;
   font-size: 13px;
   color: #909399;
   background: #fafafa;
   border-bottom: 1px solid #ebeef5;
 }
+/* 菜单树内部独立滚动，不与右侧表格共用 */
 .sidebar-menu {
+  flex: 1;
+  min-height: 0;
   border-right: none;
+  overflow-y: auto;
 }
 .sidebar-menu::-webkit-scrollbar {
   width: 4px;

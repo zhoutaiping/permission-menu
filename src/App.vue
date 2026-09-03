@@ -85,18 +85,23 @@ body {
   height: 100%;
 }
 #app-root {
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
   padding: 24px;
 }
 .permission-card {
   max-width: 1280px;
+  height: 100%;
   margin: 0 auto;
   background: #ffffff;
   border-radius: 6px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
   padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
 }
 .permission-title {
+  flex-shrink: 0;
   font-size: 18px;
   font-weight: 600;
   color: #303133;
@@ -107,10 +112,13 @@ body {
   justify-content: space-between;
 }
 .permission-body {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
   display: flex;
   gap: 20px;
   padding-top: 20px;
-  align-items: flex-start;
+  align-items: stretch;
 }
 
 @media (max-width: 992px) {
