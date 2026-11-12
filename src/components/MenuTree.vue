@@ -53,16 +53,19 @@ export default {
     },
   },
   computed: {
-    // 只显示菜单节点，过滤掉按钮（type 缺失 / button）及其他类型（help）
+    // 显示菜单节点，过滤掉按钮（type 缺失 / button）
+    // 一级叶子菜单（无下级页面，自身即功能，如 meanType='help' 的帮助中心）也显示
     // 同时排除 id 缺失的节点（避免 ElementUI el-menu-item/submenu 的 index prop 校验失败）
     visibleItems() {
-      return this.items.filter(
-        (it) =>
-          it.meanType == 'menu' &&
-          it.id !== undefined &&
-          it.id !== null &&
-          it.id !== ''
-      );
+      return this.items.filter((it) => {
+        if (it.id === undefined || it.id === null || it.id === '') return false;
+        if (it.meanType == 'menu') return true;
+        // 一级且没有子菜单的叶子（帮助中心等）也作为可点功能项显示
+        return (
+          it.level == 1 &&
+          !(it.childs || []).some((c) => c.meanType == 'menu')
+        );
+      });
     },
   },
   methods: {

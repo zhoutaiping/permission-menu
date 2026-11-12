@@ -165,8 +165,20 @@ export default {
 
     /** 收集一级菜单下所有权限行 */
     collectLevel1(l1, rows) {
-      (l1.childs || []).forEach((l2) => {
-        if (l2.meanType !== 'menu') return;
+      const l2Menus = (l1.childs || []).filter((c) => c.meanType === 'menu');
+      if (!l2Menus.length) {
+        // 叶子一级菜单（无下级页面，自身即菜单功能）：展示自身行，可勾选查看/操作
+        const buttons = (l1.childs || []).filter((c) => c.meanType !== 'menu');
+        rows.push({
+          level1: l1.name,
+          level2: l1.name,
+          level3: '-',
+          _node: l1,
+          buttons,
+        });
+        return;
+      }
+      l2Menus.forEach((l2) => {
         this.collectMenuNode(l2, l1.name, '', 1, rows);
       });
     },
